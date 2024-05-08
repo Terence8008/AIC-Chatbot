@@ -1,0 +1,6 @@
+numpy
+SpeechRecognition==3.10.4
+gTTS
+transformers
+tensorflow
+Pyaudio

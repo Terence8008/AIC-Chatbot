@@ -1,5 +1,6 @@
 # Chatbot Main file is here
-# packages needed: numpy, SpeechRecognition, gTTS, transformers, tensorflow, Pyaudio
+# Ensure the packages listed in 'requirements.txt' have been downloaded before running.
+
 import speech_recognition as sr
 
 
