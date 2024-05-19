@@ -14,7 +14,7 @@ from langchain.chains import LLMChain
 import os
 import pyttsx3
 
-os.environ['HUGGINGFACEHUB_API_TOKEN'] = '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'
+os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'put your hugging key here'
 load_dotenv()
 
 engine = pyttsx3.init()
