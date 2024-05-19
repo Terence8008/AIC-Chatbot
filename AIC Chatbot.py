@@ -5,7 +5,9 @@ import speech_recognition as sr
 from gtts import gTTS
 import transformers
 import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+from tensorflow import keras
+import segmentation_models as sm
+
 
 import numpy as np
 import time

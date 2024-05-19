@@ -1,0 +1,5 @@
+documentation for sr 
+https://github.com/Uberi/speech_recognition/blob/master/reference/library-reference.rst
+
+documentation for transformer
+https://pypi.org/project/transformers/
