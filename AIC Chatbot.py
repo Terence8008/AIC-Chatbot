@@ -1,4 +1,4 @@
-# Chatbot Main file is here
+# NOT USED ANYMORE
 # packages needed: numpy, SpeechRecognition, gTTS, transformers, tensorflow, Pyaudio, keras
 # keras3 not supported
 import speech_recognition as sr
