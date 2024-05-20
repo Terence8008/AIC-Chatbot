@@ -20,10 +20,17 @@ load_dotenv()
 engine = pyttsx3.init()
 
 hub_llm = HuggingFaceHub(
-        repo_id="google/flan-t5-large",
-        model_kwargs={'temperature': 0.8, 'min_length': 40, 'max_length': 100}
+        repo_id="google/flan-t5-large", # Language Model name to use
+        model_kwargs={'temperature': 0.8, 'min_length': 40, 'max_length': 100} # Keyword arguments to pass to the model.
+        
+        ### temperature (float, optional, defaults to 1.0) – The value used to module the next token probabilities / The temperature of the sampling operation. 1 means regular sampling, 0 means always take the highest score, 100.0 is getting closer to uniform probability.
+        ### min_length/max_length: Integer to define the minimum/maximum length in tokens of the output summary.
+        
     )
 
+# Language models (LLMs) require prompts to function.
+# A prompt is a set of instructions or inputs to guide the model’s response. 
+# Accepts a set of parameters from the user that can be used to generate a prompt for a language model.
 prompt = PromptTemplate(
     input_variables=["question"],
     template="Answer this question in a happy manner: {question}"
@@ -40,6 +47,7 @@ class Chatbot:
 
 
     def speech_to_text(self):
+        # Each Recognizer instance has seven methods for recognizing speech from an audio source using various APIs. 
         recognizer = sr.Recognizer()
 
         # Represents the energy level threshold for sounds.
@@ -53,18 +61,24 @@ class Chatbot:
             print("listening...")
             audio = recognizer.listen(mic)
         try:
+            # In this case, Google Web Speech API is used (recognize_google())
+            # Alternatives: Microsoft Bing Speech, Wit.ai, IBM Speech to Text
             self.audioText = recognizer.recognize_google(audio, language="en-US",)
             print("You :", self.audioText)
         except Exception:
             pass
 
     def text_to_speech(self, ai_text):
+        # Queues a command to speak an utterance. 
         engine.say(ai_text)
+        # Blocks while processing all currently queued commands. 
         engine.runAndWait()
 
     def response(self, audiotext):
         if audiotext != "":
-            hub_chain = LLMChain(prompt=prompt, llm=hub_llm, verbose=True)
+            hub_chain = LLMChain(prompt=prompt, llm=hub_llm, verbose=True) # Chain to run queries against LLMs.
+            ### verbose parameter enables detailed output
+            ### Benificial for understanding the abstraction that LangChain provides under the hood, while executing our query.
             print(hub_chain.run(audiotext))
         else:
             print("No input found please try again")
