@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 import pyttsx3
 
 engine = pyttsx3.init()
-os.environ['HUGGINGFACEHUB_API_TOKEN'] = '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'
+os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'Your hugging face token'
 load_dotenv()
 
 # temperature (float, optional, defaults to 1.0) – The value used to module the next token probabilities

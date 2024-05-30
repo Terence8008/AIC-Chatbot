@@ -1,4 +1,4 @@
-# Getting response
+# Getting response experimental
 # installed packages: python-dotenv, langchain, langchainopenai (partner package)
 
 from dotenv import load_dotenv
@@ -7,7 +7,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 import os
 
-os.environ['HUGGINGFACEHUB_API_TOKEN'] = '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'
+os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'Your hugging face token'
 
 load_dotenv()
 

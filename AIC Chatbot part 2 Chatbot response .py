@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # from langchain_openai import OpenAI
 
 # llm = OpenAI(model="gpt-3.5-turbo-instruct", temperature=0, max_tokens=512)
-os.environ['HUGGINGFACEHUB_API_TOKEN'] = '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'
+os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'Your Hugging face token'
 load_dotenv()
 
 repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
