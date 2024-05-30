@@ -1,0 +1,9 @@
+SpeechRecognition
+python-dotenv
+langchain
+langchain-community
+langchain_huggingface
+Huggingface-hub
+Pyaudio
+keyboard
+pyttsx3

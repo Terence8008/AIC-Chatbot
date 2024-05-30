@@ -1,6 +1,0 @@
-1) Pip install, make sure everyone got pip
-2) packages install
-3) set enviroment variable
-3) start to code
-4) explain code
-5) make sure everyone can keep up
