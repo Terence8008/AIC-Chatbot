@@ -1,27 +1,29 @@
 # Chatbot Main file is here
-# packages needed:  SpeechRecognition, gTTS, transformers, tensorflow,python-dotenv, langchain,
-# langchainopenai (partner package)
+# packages needed:  SpeechRecognition, tensorflow,python-dotenv, langchain,
+# langchain-openai (partner package)
+# langchain-community
+# Huggingface-hub
+# Pyaudio (no import but need)
 # keyboard pacakge maybe keyboard-mac for mac
-# pyttsx3
+# pyttsx3 (text to speech)z
 
 import keyboard
 import speech_recognition as sr
-import time
-from dotenv import load_dotenv
 from langchain_community.llms import HuggingFaceHub
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-import os
+# import os
+# from dotenv import load_dotenv
 import pyttsx3
 
-os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'put your hugging key here'
-load_dotenv()
+# os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'Hugging_face_token'
+# load_dotenv()
 
 engine = pyttsx3.init()
 
 hub_llm = HuggingFaceHub(
         repo_id="google/flan-t5-large",
-        model_kwargs={'temperature': 0.8, 'min_length': 40, 'max_length': 100}
+        model_kwargs={'temperature': 0.8, 'repetition_penalty': 1.2, 'num_return_sequences': 1, 'min_length': 40}
     )
 
 prompt = PromptTemplate(
@@ -31,13 +33,12 @@ prompt = PromptTemplate(
 
 
 class Chatbot:
+    # Constructor
     def __init__(self, name):
         print("----- Starting up", name, "-----")
         self.name = name
         self.audioText = ""
-        self.response = ""
-        self.status = "Sleep"
-
+        self.bot_response = ""
 
     def speech_to_text(self):
         recognizer = sr.Recognizer()
@@ -47,13 +48,13 @@ class Chatbot:
         recognizer.energy_threshold = 300
 
         # Represents the minimum length of silence (in seconds) that will register as the end of a phrase.
-        recognizer.pause_threshold = 0.8
+        recognizer.pause_threshold = 0.5
 
         with sr.Microphone() as mic:
             print("listening...")
             audio = recognizer.listen(mic)
         try:
-            self.audioText = recognizer.recognize_google(audio, language="en-US",)
+            self.audioText = recognizer.recognize_google(audio, language="en-US")
             print("You :", self.audioText)
         except Exception:
             pass
@@ -65,7 +66,9 @@ class Chatbot:
     def response(self, audiotext):
         if audiotext != "":
             hub_chain = LLMChain(prompt=prompt, llm=hub_llm, verbose=True)
-            print(hub_chain.run(audiotext))
+            self.bot_response = hub_chain.run(audiotext)
+            print(self.bot_response)
+            return self.bot_response
         else:
             print("No input found please try again")
 
@@ -81,7 +84,7 @@ if __name__ == "__main__":
         if keyboard.read_key() == 'z':
             ai.speech_to_text()
             ai.response(ai.audioText)
-            #ai.text_to_speech(ai.response())
+            ai.text_to_speech(ai.bot_response)
         elif keyboard.read_key() == 'q':
             ex = False
         else:

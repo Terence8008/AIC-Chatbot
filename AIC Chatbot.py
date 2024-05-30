@@ -53,9 +53,6 @@ class Chatbot:
         time.sleep(int(50 * duration))
         os.remove("res.mp3")
 
-    def wake_up(self, audio_text):
-        return True if self.name in audio_text.lower() else False
-
 
 # Boot the AI
 if __name__ == "__main__":
