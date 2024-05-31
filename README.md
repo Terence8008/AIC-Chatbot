@@ -47,10 +47,15 @@ pip install pyttsx3
 
 ## References
 [SpeechRecognition 3.10.4 Documentation](https://pypi.org/project/SpeechRecognition/)
+
 [python-dotenv 1.0.1 Documentation](https://pypi.org/project/python-dotenv/)
+
 [langchain 0.2.1 Documentation](https://pypi.org/project/langchain/)
+
 [huggingface-hub 0.23.2](https://pypi.org/project/huggingface-hub/)
+
 [keyboard 0.13.5 Documentation](https://pypi.org/project/keyboard/)
+
 [pyttsx3 2.90](https://pypi.org/project/pyttsx3/)
 
 
