@@ -4,6 +4,15 @@ This repository is developed by APU AIC for the "Python Powered AI Chatbot Works
 Users will learn to develop a voice assistant using Python and pre-trained models.
 
 ## Package Installation
-'''
-pip install 
-'''
+Use the package manager pip to install foobar.
+```
+pip install SpeechRecognition
+pip install python-dotenv
+pip install langchain
+pip install langchain-community
+pip install langchain_huggingface
+pip install Huggingface-hub
+pip install Pyaudio
+pip install keyboard
+pip install pyttsx3
+```
