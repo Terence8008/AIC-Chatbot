@@ -52,11 +52,11 @@ pip install pyttsx3
 
 [langchain 0.2.1 Documentation](https://pypi.org/project/langchain/)
 
-[huggingface-hub 0.23.2](https://pypi.org/project/huggingface-hub/)
+[huggingface-hub 0.23.2 Documentation](https://pypi.org/project/huggingface-hub/)
 
 [keyboard 0.13.5 Documentation](https://pypi.org/project/keyboard/)
 
-[pyttsx3 2.90](https://pypi.org/project/pyttsx3/)
+[pyttsx3 2.90 Documentation](https://pypi.org/project/pyttsx3/)
 
 
 
